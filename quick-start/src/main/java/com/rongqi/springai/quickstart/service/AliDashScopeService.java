@@ -28,6 +28,7 @@ import org.springframework.ai.image.ImageResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import reactor.core.publisher.Flux;
 
 
@@ -109,11 +110,11 @@ public class AliDashScopeService {
     /**
      * 提供文生视频能力
      */
-    public VideoSynthesisResult text2Video(String message) throws ApiException, NoApiKeyException, InputRequiredException {
+    public VideoSynthesisResult text2Video(String message, String model) throws ApiException, NoApiKeyException, InputRequiredException {
         VideoSynthesis vs = new VideoSynthesis();
         VideoSynthesisParam param =
                 VideoSynthesisParam.builder()
-                        .model("wanx2.1-t2v-turbo")
+                        .model(StringUtils.hasText(model) ? model : "wanx2.1-t2v-turbo")
                         .prompt(message)
                         .size("1280*720")
                         .apiKey(apikey)
