@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# 环境配置文件（所有模块的本地配置都忽略）
+**/src/main/resources/application-local.properties
+**/src/main/resources/application-local.yml
+**/src/main/resources/application-local.*
+
+# 但保留示例文件
+!**/src/main/resources/application-local.properties.example
+!**/src/main/resources/application-local.yml.example
