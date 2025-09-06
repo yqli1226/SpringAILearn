@@ -1,0 +1,14 @@
+# 本地开发环境配置示例
+# 请复制此文件为 application-local.properties 并填写实际值
+
+# deepseek
+spring.ai.deepseek.api-key=your_actual_deep_seek_api_key_here
+spring.ai.deepseek.chat.options.model=deepseek-chat
+
+# Alibaba百炼
+spring.ai.dashscope.api-key=your_actual_ali_api_key_here
+spring.ai.dashscope.chat.options.model = qwen-plus
+
+# ollama
+# spring.ai.ollama.base-url=http://localhost:11434
+spring.ai.ollama.chat.model=your_actual_download_model
