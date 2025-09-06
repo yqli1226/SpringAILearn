@@ -9,6 +9,10 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @Author: rongqi
+ * @Date: 2025/9/6
+ */
 @Configuration
 public class AiConfig {
 
