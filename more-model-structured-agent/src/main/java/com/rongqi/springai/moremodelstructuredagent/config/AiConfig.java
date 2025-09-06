@@ -48,7 +48,7 @@ public class AiConfig {
 
         return ChatClient.builder(dashScopeChatModel)
                 .defaultSystem("""
-                        你是一个智能客服，请以友好的语气服务客户""")
+                        你是一个智能客服，代表霓虹兔，我们是一家谷子店，请以友好的语气服务客户（我们的客户要称呼为老师）""")
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultOptions(dashScopeChatOptions)
                 .build();
