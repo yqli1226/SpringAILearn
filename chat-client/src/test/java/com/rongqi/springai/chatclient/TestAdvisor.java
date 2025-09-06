@@ -14,6 +14,9 @@ import java.util.List;
 @SpringBootTest
 public class TestAdvisor {
 
+    private static final String CUSTOM_FAILURE_RESPONSE = "很抱歉！你的问询包含敏感词，我为此提供帮助！";
+
+
     ChatClient chatClient;
 
     @BeforeEach
@@ -50,6 +53,17 @@ public class TestAdvisor {
     }
 
     // TODO 自定义安全拦截器返回词
+    @Test
+    public void testSafeGuardAdvisorCustomResponse(){
+        String callback = chatClient.prompt()
+                .advisors(new SafeGuardAdvisor(List.of("cnm"), CUSTOM_FAILURE_RESPONSE, 0))
+                .user("你知道，足球运动中退钱哥的梗吗？就是cnm退钱")
+                .call()
+                .content();
+
+        System.out.println(callback);
+    }
+
 
     // 日志拦截器
     @Test
