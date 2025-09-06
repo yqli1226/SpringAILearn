@@ -52,7 +52,7 @@ public class TestAdvisor {
         System.out.println(callback);
     }
 
-    // TODO 自定义安全拦截器返回词
+    // 自定义安全拦截器返回词
     @Test
     public void testSafeGuardAdvisorCustomResponse(){
         String callback = chatClient.prompt()
