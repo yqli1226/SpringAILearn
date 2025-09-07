@@ -20,6 +20,7 @@
         <module>chat-client</module>
         <module>more-platform-and-model</module>
         <module>more-model-structured-agent</module>
+        <module>tools</module>
     </modules>
 
     <properties>
