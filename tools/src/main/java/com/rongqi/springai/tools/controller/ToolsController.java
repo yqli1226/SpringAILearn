@@ -2,7 +2,6 @@ package com.rongqi.springai.tools.controller;
 
 import com.rongqi.springai.tools.service.ToolService;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +18,8 @@ public class ToolsController {
         this.chatMemory = chatMemory;
         this.client = builder
                 .defaultTools(toolService)
-                .defaultAdvisors(PromptChatMemoryAdvisor.builder(chatMemory).build())
+//                .defaultAdvisors(PromptChatMemoryAdvisor.builder(chatMemory).build())
+                .defaultToolCallbacks(toolService.getToolCallList(toolService))
                 .build();
     }
 

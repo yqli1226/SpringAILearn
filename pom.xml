@@ -21,6 +21,7 @@
         <module>more-platform-and-model</module>
         <module>more-model-structured-agent</module>
         <module>tools</module>
+        <module>goodz-customer-service-agent</module>
     </modules>
 
     <properties>
