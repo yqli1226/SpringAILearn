@@ -1,0 +1,19 @@
+spring:
+  ai:
+    mcp:
+      client:
+        request-timeout : 60000
+        stdio:
+          # 单独放在json文件中管理
+          servers-configuration: classpath:/mcp/mcp-servers-configuration.json
+          # 直接全文配置在配置文件中
+#          connections:
+#            baidu-mcp:
+#              command: cmd
+#              args:
+#                - /c
+#                - npx
+#                - -y
+#                - "@baidumap/mcp-server-baidu-map"
+#              env:
+#                BAIDU_MAP_API_KEY: LEyBQxG9UzR9C1GZ6zDHsFDVKvBem2do

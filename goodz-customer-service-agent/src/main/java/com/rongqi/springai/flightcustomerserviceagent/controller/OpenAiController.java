@@ -5,12 +5,15 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -20,10 +23,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class OpenAiController {
 
     ChatClient chatClient;
+    private static final Logger logger = LoggerFactory.getLogger(OpenAiController.class);
 
     public OpenAiController(ChatClient.Builder builder,
                             ChatMemory chatMemory,
-                            ToolService toolService) {
+                            ToolService toolService,
+                            ToolCallbackProvider toolCallbackProvider) {
+        // 日志输出mcp工具加载情况
+        logger.info("ToolCallbackProvider injected: {}", toolCallbackProvider != null);
+        if (toolCallbackProvider != null) {
+            logger.info("MCP tools count: {}", toolCallbackProvider.getToolCallbacks().length);
+        }
+
         this.chatClient = builder
                 .defaultAdvisors(
                         PromptChatMemoryAdvisor.builder(chatMemory).build(),
@@ -40,6 +51,7 @@ public class OpenAiController {
                               1. 今天的日期为{current_date}
                         """)
                 .defaultTools(toolService)
+                .defaultToolCallbacks(toolCallbackProvider)
                 .build();
     }
 
