@@ -17,3 +17,15 @@ spring:
 #                - "@baidumap/mcp-server-baidu-map"
 #              env:
 #                BAIDU_MAP_API_KEY: LEyBQxG9UzR9C1GZ6zDHsFDVKvBem2do
+        sse:
+          connections:
+            UserSSEInfo:
+              url : http://localhost:8088/
+
+
+logging:
+  level:
+    io:
+      modelcontextprotocol:
+        client: debug
+        spec: debug

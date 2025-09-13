@@ -22,6 +22,8 @@
         <module>more-model-structured-agent</module>
         <module>tools</module>
         <module>goodz-customer-service-agent</module>
+        <module>mcp-stdio-server</module>
+        <module>mcp-sse-server</module>
     </modules>
 
     <properties>

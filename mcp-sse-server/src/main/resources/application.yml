@@ -1,0 +1,20 @@
+spring:
+  main:
+    web-application-type: reactive
+  ai:
+    mcp:
+      server:
+        name : rongqi-hero-server
+        version : 0.0.1
+        sse-endpoint: /sse
+
+server:
+  port: 8088
+
+
+
+#logging:
+#  level:
+#    org.springframework.boot.autoconfigure: DEBUG
+#    org.springframework.ai.mcp: DEBUG
+#    org.springframework.web: DEBUG
