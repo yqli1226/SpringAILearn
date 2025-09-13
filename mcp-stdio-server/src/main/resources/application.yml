@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-application-type : none
+    banner-mode : off
+  ai:
+    mcp:
+      server:
+        name : rongqi-weather-server
+        version : 0.0.1

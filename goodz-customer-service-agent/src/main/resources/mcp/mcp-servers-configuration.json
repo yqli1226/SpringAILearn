@@ -1,16 +1,15 @@
 {
   "mcpServers": {
-    "baidu-map" : {
-      "command" : "cmd",
+
+    "mcp-server-weather" : {
+      "command" : "java",
       "args" : [
-        "/c",
-        "npx",
-        "-y",
-        "@baidumap/mcp-server-baidu-map"
-      ],
-      "env" : {
-        "BAIDU_MAP_API_KEY" : "LEyBQxG9UzR9C1GZ6zDHsFDVKvBem2do"
-      }
+        "-Dspring.ai.mcp.server.stdio = true",
+        "-Dlogging.pattern.console=",
+        "-jar",
+        "F:\\ideaWorkSpace\\spring-ai-demo\\mcp-stdio-server\\target\\mcp-stdio-server-0.0.1-SNAPSHOT.jar"
+        ]
+
     }
   }
 }
